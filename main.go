@@ -126,7 +126,6 @@ func severityToLevel(severity string) string {
 	default:
 		return MessageLevelWarning
 	}
-	os.Exit(1)
 }
 
 func usage() {
