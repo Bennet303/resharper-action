@@ -108,7 +108,7 @@ func printOutput(w io.Writer, report Report) {
 			level := severityToLevel(issueType.Severity)
 			column := strings.Split(issue.Offset, "-")[0]
 			file := strings.ReplaceAll(issue.File, `\`, "/")
-			if level == "MessageLevelError" {
+			if level == MessageLevelError {
 				fail = 1
 			}
 			Message(w, level, file, issue.Line, column, issue.Message)
@@ -126,6 +126,7 @@ func severityToLevel(severity string) string {
 	default:
 		return MessageLevelWarning
 	}
+	os.Exit(1)
 }
 
 func usage() {
